@@ -1,4 +1,10 @@
+import { Button } from './button'
 export default function Header() {
+  function SwitchLang() {
+    const [language, setLanguage] = useState('en')
+
+    const toggleLanguage = () => {}
+  }
   return (
     <header className="bg-gray-700 text-white font-pixel text-3xl">
       {/* Div principal que envuelve todo */}
@@ -16,6 +22,7 @@ export default function Header() {
           <li className="cursor-pointer">
             <a href=""></a>CONTACT
           </li>
+          <Button></Button>
         </ul>
       </div>
     </header>
