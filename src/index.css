@@ -128,3 +128,20 @@
     @apply font-sans;
     }
 }
+
+@font-face {
+  font-family: "TitleFont";
+  src: url(./assets/fonts/title-font.woff2);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PixelFont";
+  src: url(./assets/fonts/pixel-font.ttf);
+  font-display: swap;
+}
+
+@theme {
+  --font-title: "TitleFont", sans-serif;
+  --font-pixel: "PixelFont", sans-serif;
+}
