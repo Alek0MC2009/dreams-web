@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Alek0MC2009 Stats</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 30px;
+        background: #0f172a;
+        color: white;
+        font-family: system-ui;
+      }
+
+      .profile {
+        display: flex;
+        gap: 25px;
+        align-items: center;
+        background: #1e293b;
+        padding: 25px;
+        border-radius: 20px;
+      }
+
+      .avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+      }
+
+      .stats {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .stat {
+        background: #334155;
+        padding: 15px;
+        border-radius: 12px;
+      }
+
+      #repos {
+        margin-top: 40px;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+        gap: 20px;
+      }
+
+      .card {
+        background: #1e293b;
+        padding: 20px;
+        border-radius: 15px;
+
+        transition: 0.2s;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .lang {
+        color: #38bdf8;
+      }
+
+      .badge {
+        background: #7c3aed;
+        padding: 5px 10px;
+        border-radius: 20px;
+      }
+
+      a {
+        color: #60a5fa;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="profile">Cargando perfil...</div>
+
+    <h1>📦 Repositorios</h1>
+
+    <div id="repos"></div>
+
+    <script>
+      const username = 'Alek0MC2009'
+
+      const profile = document.getElementById('profile')
+      const reposDiv = document.getElementById('repos')
+
+      async function loadGithub() {
+        const userRes = await fetch(`https://api.github.com/users/${username}`)
+
+        const user = await userRes.json()
+
+        profile.innerHTML = `
+
+<img class="avatar" src="${user.avatar_url}">
+
+
+<div>
+
+<h1>
+${user.name ?? user.login}
+</h1>
+
+
+<p>
+${user.bio ?? 'Sin bio'}
+</p>
+
+
+<div class="stats">
+
+
+<div class="stat">
+📦 Repos
+<br>
+<b>${user.public_repos}</b>
+</div>
+
+
+<div class="stat">
+👥 Followers
+<br>
+<b>${user.followers}</b>
+</div>
+
+
+<div class="stat">
+⭐ Stars
+<br>
+<b id="stars">
+0
+</b>
+</div>
+
+
+</div>
+
+
+</div>
+
+`
+
+        const reposRes = await fetch(
+          `https://api.github.com/users/${username}/repos?per_page=100&sort=updated`,
+        )
+
+        const repos = await reposRes.json()
+
+        let totalStars = 0
+
+        reposDiv.innerHTML = ''
+
+        repos.forEach((repo) => {
+          totalStars += repo.stargazers_count
+
+          const card = document.createElement('div')
+
+          card.className = 'card'
+
+          card.innerHTML = `
+
+
+<h2>
+${repo.name}
+</h2>
+
+
+<p>
+${repo.description ?? 'Sin descripción'}
+</p>
+
+
+
+<p class="lang">
+
+${repo.language ?? 'Sin lenguaje'}
+
+</p>
+
+
+
+<p>
+
+⭐ ${repo.stargazers_count}
+
+&nbsp;
+
+🍴 ${repo.forks_count}
+
+</p>
+
+
+
+<a href="${repo.html_url}" target="_blank">
+
+Ver repo →
+
+</a>
+
+
+`
+
+          reposDiv.appendChild(card)
+        })
+
+        document.getElementById('stars').textContent = totalStars
+      }
+
+      loadGithub()
+    </script>
+  </body>
+</html>
