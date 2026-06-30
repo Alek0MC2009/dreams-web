@@ -24,7 +24,10 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <Link className="text-3xl hover:text-4xl hover:text-cyan-600" to="">
+            <Link
+              className="text-3xl hover:text-4xl hover:text-cyan-600"
+              to="/team-page"
+            >
               TEAM
             </Link>
           </li>
