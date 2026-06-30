@@ -46,7 +46,7 @@ export function DemoPage() {
                 mail
               </a>
               .<br />
-              <p className="text-[10px] text-center">(Thank you :D)</p>
+              <p className="mt-3 text-[10px] text-center">(Thank you :D)</p>
             </p>
           </div>
         </div>
