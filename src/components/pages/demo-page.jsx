@@ -7,7 +7,7 @@ export function DemoPage() {
             "Dreams?" Demo
           </h1>
           <p className="text-xl text-purple-300 text-center mb-8 font-bold">
-            Currently the "Dreams?" demo is in development
+            Currently the "Dreams?" demo is in development, Sorry...
           </p>
         </div>
 
