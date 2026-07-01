@@ -1,6 +1,6 @@
 # Práctica — Lenguajes de Marcas
 
-## 1º DAW · Landing Page Componetizada con React
+## Preparación para 1º DAW · Landing Page Componetizada con React
 
 ---
 
@@ -78,10 +78,9 @@ El proyecto debe funcionar como una **SPA (Single Page Application)** navegable,
 ## Stack técnico obligatorio
 
 | Tecnología       | Versión recomendada | Uso obligatorio                                                 |
-| ---------------- | ------------------- | --------------------------------------------------------------- |
+| ---------------- | ------------------- | --------------------------------------------------------------- | 
 | Vite             | ^5.x                | Bundler y entorno de desarrollo                                 |
-| React            | ^18.x               | Librería principal de UI                                        |
-| TypeScript       | ^5.x                | Tipado estático en todo el proyecto                             |
+| React            | ^18.x               | Librería principal de UI                                        |     |
 | Tailwind CSS     | ^3.x                | Estilado completo, sin CSS plano salvo excepciones justificadas |
 | shadcn/ui        | última              | Componentes de interfaz reutilizables                           |
 | lucide-react     | última              | Iconografía en toda la interfaz                                 |
@@ -90,7 +89,7 @@ El proyecto debe funcionar como una **SPA (Single Page Application)** navegable,
 ### Instalación base sugerida
 
 ```bash
-npm create vite@latest echo-landing -- --template react-ts
+npm create vite@latest echo-landing
 cd echo-landing
 npm install
 npm install -D tailwindcss postcss autoprefixer
